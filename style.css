@@ -232,6 +232,14 @@ footer {
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
+    header {
+        padding-bottom: 30px; /* Forces the dark header to stretch down and wrap the ROC number */
+    }
+    
+    .company-text h1 {
+        font-size: 1.15rem; /* Slightly shrinks the text so it isn't quite as overwhelming on small screens */
+    }
+
     .hero h2 {
         font-size: 2.5rem;
     }
