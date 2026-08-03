@@ -1,7 +1,18 @@
-// Wait for the document to fully load
 document.addEventListener("DOMContentLoaded", function() {
     
-    // 1. Smooth Scrolling for Navigation Links
+    // 1. Mobile Menu Toggle Logic
+    const hamburger = document.getElementById('hamburger');
+    const navLinksMenu = document.querySelector('.nav-links');
+
+    if(hamburger) {
+        hamburger.addEventListener('click', () => {
+            // Toggles the 'active' class on both elements
+            hamburger.classList.toggle('active');
+            navLinksMenu.classList.toggle('active');
+        });
+    }
+
+    // 2. Smooth Scrolling for Navigation Links
     const navLinks = document.querySelectorAll('.nav-links a, .cta-button');
     
     navLinks.forEach(link => {
@@ -12,24 +23,28 @@ document.addEventListener("DOMContentLoaded", function() {
             
             if(targetElement) {
                 window.scrollTo({
-                    top: targetElement.offsetTop - 80, // Adjusts for the sticky header height
+                    top: targetElement.offsetTop - 80,
                     behavior: 'smooth'
                 });
+            }
+
+            // Close the mobile menu if it is open after clicking a link
+            if (navLinksMenu.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navLinksMenu.classList.remove('active');
             }
         });
     });
 
-    // 2. Form Submission Handler 
+    // 3. Form Submission Handler 
     const leadForm = document.getElementById('lead-form');
     
     if(leadForm) {
         leadForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevents the page from refreshing immediately
+            e.preventDefault();
             
-            // In a real build, you would add code here to send the data to your email or CRM
             alert("Thank you! Your estimate request has been received. Our team will contact you shortly.");
             
-            // Clear the form fields after submission
             leadForm.reset();
         });
     }

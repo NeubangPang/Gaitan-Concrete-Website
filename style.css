@@ -32,12 +32,6 @@ header {
     z-index: 100;
 }
 
-.logo-container h1 {
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
 .logo-container {
     display: flex;
     align-items: center;
@@ -58,6 +52,9 @@ header {
 }
 
 .company-text h1 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     margin: 0;
     line-height: 1.1;
 }
@@ -72,6 +69,12 @@ header {
     margin-top: 1px;
 }
 
+/* --- Navigation Links --- */
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
 .nav-links a {
     color: var(--white);
     text-decoration: none;
@@ -82,6 +85,23 @@ header {
 
 .nav-links a:hover {
     color: var(--accent-color);
+}
+
+/* --- Hamburger Menu (Hidden on Desktop) --- */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 101; /* Keeps it above the slide-out menu */
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--white);
+    transition: all 0.3s ease-in-out;
+    border-radius: 2px;
 }
 
 /* --- Hero Section --- */
@@ -230,20 +250,58 @@ footer {
     padding: 2rem 5%;
 }
 
-/* --- Responsive Adjustments --- */
+/* --- Responsive Adjustments & Mobile Menu --- */
 @media (max-width: 768px) {
     header {
-        padding-bottom: 30px; /* Forces the dark header to stretch down and wrap the ROC number */
+        padding-bottom: 25px; /* Added breathing room for the ROC text */
     }
     
     .company-text h1 {
-        font-size: 1.15rem; /* Slightly shrinks the text so it isn't quite as overwhelming on small screens */
+        font-size: 1.15rem;
     }
 
     .hero h2 {
         font-size: 2.5rem;
     }
+    
+    /* Reveal the hamburger icon */
+    .hamburger {
+        display: flex;
+    }
+    
+    /* Style the sidebar menu */
     .nav-links {
-        display: none; 
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hides the menu completely off the right side */
+        width: 250px;
+        height: 100vh;
+        background-color: var(--primary-color);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.4s ease; /* Smooth slide animation */
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+    }
+    
+    /* This class is triggered by Javascript to slide the menu in */
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-links a {
+        margin: 1.5rem 0; /* Spacing between links */
+        font-size: 1.2rem;
+    }
+
+    /* Animate Hamburger into an 'X' */
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
     }
 }
