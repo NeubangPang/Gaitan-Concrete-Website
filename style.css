@@ -58,7 +58,7 @@ header {
 
 /* --- Hero Section --- */
 .hero {
-    background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+    background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('images/my-hero-image.jpg') center/cover;
     height: 80vh;
     display: flex;
     align-items: center;
