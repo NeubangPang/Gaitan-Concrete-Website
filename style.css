@@ -124,6 +124,8 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
+    height: 100%;
+    width: 100%;
     background-image: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('images/my-hero-image.jpg');
     background-size: cover;
     background-position: center;
