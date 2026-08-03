@@ -107,7 +107,7 @@ header {
 /* --- Hero Section --- */
 .hero {
     position: relative;
-    min-height: 80vh; 
+    min-height: 80dvh; 
     display: flex;
     align-items: center;
     justify-content: center;
