@@ -38,18 +38,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    const leadForm = document.getElementById('lead-form');
-    
-    if(leadForm) {
-        leadForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            alert("Thank you! Your estimate request has been received. Our team will contact you shortly.");
-            
-            leadForm.reset();
-        });
-    }
-
     const slider = document.getElementById('testimonial-slider');
     const leftBtn = document.querySelector('.left-btn');
     const rightBtn = document.querySelector('.right-btn');

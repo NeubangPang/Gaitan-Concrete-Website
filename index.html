@@ -92,28 +92,41 @@
             <p><em>Contact us today. Our team responds to all inquiries within minutes to discuss your project requirements and schedule a site visit.</em></p>
         </div>
         <div class="contact-form">
-            <form id="lead-form" action="#" method="POST">
+            <div data-fs-success class="form-message success-message"></div>
+            <div data-fs-error class="form-message error-message"></div>
+
+            <form id="lead-form">
                 <div class="form-group">
-                    <input type="text" id="fullName" placeholder="Full Name" required>
+                    <input type="text" id="fullName" name="Name" placeholder="Full Name" data-fs-field required>
                 </div>
                 <div class="form-group">
-                    <input type="tel" id="phoneNumber" placeholder="Phone Number" required>
+                    <input type="tel" id="phoneNumber" name="Phone" placeholder="Phone Number" data-fs-field required>
                 </div>
                 <div class="form-group">
-                    <input type="email" id="emailAddress" placeholder="Email Address" required>
+                    <input type="email" id="emailAddress" name="Email" placeholder="Email Address" data-fs-field required>
                 </div>
                 <div class="form-group">
-                    <textarea id="projectDetails" placeholder="Tell us about your project (e.g., driveway replacement, new patio)..." required></textarea>
+                    <textarea id="projectDetails" name="Project Details" placeholder="Tell us about your project (e.g., driveway replacement, new patio)..." data-fs-field required></textarea>
                 </div>
-                <button type="submit" class="submit-btn">Send Your Request</button>
+                <button type="submit" class="submit-btn" data-fs-submit-btn>Send Your Request</button>
             </form>
-        </div>
+        </div
     </section>
 
     <footer>
         <p>&copy; 2026 Gaitan Custom Concrete LLC. All Rights Reserved.</p>
         <p>Licensed, Bonded, and Insured in the State of Arizona.</p>
     </footer>
+
+    <script>
+        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+        formspree('initForm', { formElement: '#lead-form', formId: 'mwvggayv' });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
 
     <script src="script.js"></script>
 </body>
