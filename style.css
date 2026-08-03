@@ -147,6 +147,15 @@ header {
     margin-bottom: 2rem;
 }
 
+/* --- Hero Buttons & Discount Badge --- */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap; /* Allows buttons to stack nicely on small phones */
+    margin-bottom: 2rem;
+}
+
 .cta-button {
     display: inline-block;
     background-color: var(--accent-color);
@@ -156,11 +165,37 @@ header {
     font-weight: bold;
     text-decoration: none;
     border-radius: 4px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 2px solid var(--accent-color);
 }
 
 .cta-button:hover {
     background-color: #bf4c00;
+    border-color: #bf4c00;
+}
+
+/* Secondary Transparent Button */
+.cta-button.secondary {
+    background-color: transparent;
+    border: 2px solid var(--white);
+}
+
+.cta-button.secondary:hover {
+    background-color: var(--white);
+    color: var(--primary-color);
+    border-color: var(--white);
+}
+
+/* Discount Badge */
+.discount-notice {
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: rgba(26, 24, 24, 0.8);
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px; /* Gives it a sleek pill shape */
+    border: 1px solid var(--accent-color);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 /* --- Testimonials Section (Horizontal Scroll) --- */
@@ -178,7 +213,6 @@ header {
     padding: 0 5%;
 }
 
-/* Wrapper to hold the buttons and slider together */
 .slider-wrapper {
     position: relative;
     max-width: 1200px;
@@ -187,7 +221,6 @@ header {
     align-items: center;
 }
 
-/* Styling for the Left/Right Desktop Buttons */
 .scroll-btn {
     background-color: var(--primary-color);
     color: var(--white);
@@ -218,17 +251,14 @@ header {
     display: flex;
     overflow-x: auto;
     gap: 2rem;
-    padding: 1rem 60px 2rem 60px; /* Space for buttons on desktop */
+    padding: 1rem 60px 2rem 60px; 
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     width: 100%;
-    
-    /* Elegant Desktop Scrollbar */
     scrollbar-width: thin;
     scrollbar-color: var(--accent-color) rgba(0,0,0,0.1);
 }
 
-/* Custom Scrollbar Styling for Chrome/Safari on Desktop */
 .testimonial-slider::-webkit-scrollbar {
     height: 10px;
     display: block;
@@ -236,7 +266,7 @@ header {
 .testimonial-slider::-webkit-scrollbar-track {
     background: rgba(0,0,0,0.05);
     border-radius: 10px;
-    margin: 0 60px; /* Aligns the scrollbar with the cards */
+    margin: 0 60px; 
 }
 .testimonial-slider::-webkit-scrollbar-thumb {
     background-color: var(--accent-color);
@@ -360,6 +390,12 @@ footer {
     .hero h2 {
         font-size: 2.5rem;
     }
+
+    /* Shrink the discount badge slightly on phones */
+    .discount-notice {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
     
     .hamburger {
         display: flex;
@@ -399,11 +435,11 @@ footer {
     }
 
     .scroll-btn {
-        display: none; /* Hide arrow buttons on mobile */
+        display: none; 
     }
     .testimonial-slider {
         padding: 1rem 5vw 3rem 5vw;
-        scrollbar-width: none; /* Hide scrollbar on mobile */
+        scrollbar-width: none; 
     }
     .testimonial-slider::-webkit-scrollbar {
         display: none; 

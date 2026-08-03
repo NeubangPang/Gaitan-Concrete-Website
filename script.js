@@ -12,14 +12,12 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 2. Smooth Scrolling & Navigation Fixes
     const navLinks = document.querySelectorAll('.nav-links a, .cta-button');
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
 
-            // Only hijack the click for smooth scrolling if it is an anchor link (#)
             if (href.startsWith('#')) {
                 e.preventDefault();
                 const targetId = href.substring(1);
@@ -33,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             }
 
-            // Close the mobile menu automatically if it is open after clicking any link
             if (navLinksMenu.classList.contains('active')) {
                 hamburger.classList.remove('active');
                 navLinksMenu.classList.remove('active');
@@ -41,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // 3. Form Submission Handler 
     const leadForm = document.getElementById('lead-form');
     
     if(leadForm) {
@@ -59,10 +55,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const rightBtn = document.querySelector('.right-btn');
 
     if(slider && leftBtn && rightBtn) {
-        // Calculate the width of one card + the gap to know how far to slide
         leftBtn.addEventListener('click', () => {
             const cardWidth = slider.querySelector('.testimonial-card').offsetWidth;
-            slider.scrollBy({ left: -(cardWidth + 32), behavior: 'smooth' }); // 32px is the 2rem gap
+            slider.scrollBy({ left: -(cardWidth + 32), behavior: 'smooth' });
         });
         
         rightBtn.addEventListener('click', () => {
