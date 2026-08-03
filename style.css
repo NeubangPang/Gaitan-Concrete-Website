@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #1A1A1A; /* High contrast dark charcoal */
-    --accent-color: #D35400; /* Industrial safety orange */
+    --primary-color: #1A1A1A;
+    --accent-color: #D35400;
     --light-bg: #F8F9FA;
     --white: #FFFFFF;
     --text-color: #333333;
@@ -38,10 +38,38 @@ header {
     letter-spacing: 1px;
 }
 
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.company-logo {
+    height: 50px;
+    width: auto;
+    transform: translateY(-8px);
+}
+
+.company-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.company-text h1 {
+    margin: 0;
+    line-height: 1.1;
+}
+
 .roc-license {
     font-size: 0.9rem;
     color: #A0A0A0;
-    margin-top: 0.2rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    white-space: nowrap;
+    margin-top: 4px;
 }
 
 .nav-links a {
