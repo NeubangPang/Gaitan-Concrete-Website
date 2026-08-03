@@ -152,7 +152,7 @@ header {
     display: flex;
     gap: 15px;
     justify-content: center;
-    flex-wrap: wrap; /* Allows buttons to stack nicely on small phones */
+    flex-wrap: wrap;
     margin-bottom: 2rem;
 }
 
@@ -193,7 +193,7 @@ header {
     background-color: rgba(26, 24, 24, 0.8);
     display: inline-block;
     padding: 0.6rem 1.5rem;
-    border-radius: 50px; /* Gives it a sleek pill shape */
+    border-radius: 50px;
     border: 1px solid var(--accent-color);
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
@@ -211,6 +211,7 @@ header {
     margin-bottom: 3rem;
     color: var(--primary-color);
     padding: 0 5%;
+    line-height: 1.2;
 }
 
 .slider-wrapper {
