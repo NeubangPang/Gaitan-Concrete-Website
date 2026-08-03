@@ -1,9 +1,9 @@
 :root {
-    --primary-color: #1A1A1A;
+    --primary-color: #1A1818;
     --accent-color: #D35400;
-    --light-bg: #F8F9FA;
+    --light-bg: #F3E7DC;
     --white: #FFFFFF;
-    --text-color: #333333;
+    --text-color: #707880;
 }
 
 * {
@@ -39,9 +39,9 @@ header {
 }
 
 .company-logo {
-    height: 50px;
+    height: 75px;
     width: auto;
-    transform: translateY(-8px);
+    transform: translateY(-5px);
 }
 
 .company-text {
