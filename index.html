@@ -18,7 +18,7 @@
             </div>
         </div>
         
-        <!-- Added Hamburger Icon -->
+        <!-- Hamburger Icon -->
         <div class="hamburger" id="hamburger">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -26,8 +26,10 @@
         </div>
 
         <nav class="nav-links">
-            <a href="#services">Services</a>
-            <a href="#contact">Our Work</a>
+            <a href="services.html">Services</a>
+            <a href="work.html">Our Work</a>
+            <a href="#testimonials">Reviews</a>
+            <a href="#contact">Contact</a>
         </nav>
     </header>
 
@@ -39,21 +41,34 @@
         </div>
     </section>
 
-    <section id="services" class="services">
-        <h2 class="section-title">Our Concrete Services</h2>
-        <div class="service-grid">
-            <div class="service-card">
-                <h3>Custom Driveways</h3>
-                <p>Durable, high-quality residential driveways designed to withstand the overwhelming Arizona heat and frequent usage.</p>
+    <!-- NEW Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <h2 class="section-title">What Our Customers Say</h2>
+        
+        <div class="slider-wrapper">
+            <!-- Left Navigation Button -->
+            <button class="scroll-btn left-btn" aria-label="Scroll left">&#10094;</button>
+            
+            <div class="testimonial-slider" id="testimonial-slider">
+                <div class="testimonial-card"><img src="images/review-1.png" alt="Customer Review 1"></div>
+                <div class="testimonial-card"><img src="images/review-2.png" alt="Customer Review 2"></div>
+                <div class="testimonial-card"><img src="images/review-3.png" alt="Customer Review 3"></div>
+                <div class="testimonial-card"><img src="images/review-4.png" alt="Customer Review 4"></div>
+                <div class="testimonial-card"><img src="images/review-5.png" alt="Customer Review 5"></div>
+                <div class="testimonial-card"><img src="images/review-6.png" alt="Customer Review 6"></div>
+                <div class="testimonial-card"><img src="images/review-7.png" alt="Customer Review 7"></div>
+                <div class="testimonial-card"><img src="images/review-8.png" alt="Customer Review 8"></div>
+                <div class="testimonial-card"><img src="images/review-9.png" alt="Customer Review 9"></div>
+                <div class="testimonial-card"><img src="images/review-10.png" alt="Customer Review 10"></div>
             </div>
-            <div class="service-card">
-                <h3>Decorative & Stamped</h3>
-                <p>Elevate your outdoor living space with beautiful stamped and colored concrete patios, walkways, and pool decks.</p>
-            </div>
-            <div class="service-card">
-                <h3>Structural Foundations</h3>
-                <p>Precision-poured slabs and foundations for residential and commercial additions, built to strict engineering specifications.</p>
-            </div>
+
+            <!-- Right Navigation Button -->
+            <button class="scroll-btn right-btn" aria-label="Scroll right">&#10095;</button>
+        </div>
+        
+        <div class="swipe-indicator">
+            <span class="desktop-text">Use arrows or scrollbar to navigate</span>
+            <span class="mobile-text">&larr; Swipe to read more &rarr;</span>
         </div>
     </section>
 

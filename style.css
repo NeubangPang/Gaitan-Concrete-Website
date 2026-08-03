@@ -114,10 +114,21 @@ header {
     text-align: center;
     color: var(--white);
     padding: 40px 20px; 
+    background-color: var(--primary-color);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-image: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('images/my-hero-image.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    z-index: 1;
 }
 
 .hero-content {
@@ -152,42 +163,122 @@ header {
     background-color: #bf4c00;
 }
 
-/* --- Services Section --- */
-.services {
-    padding: 5rem 5%;
+/* --- Testimonials Section (Horizontal Scroll) --- */
+.testimonials {
+    padding: 5rem 0; 
     background-color: var(--light-bg);
     text-align: center;
+    overflow: hidden;
 }
 
-.section-title {
+.testimonials .section-title {
     font-size: 2.5rem;
     margin-bottom: 3rem;
     color: var(--primary-color);
+    padding: 0 5%;
 }
 
-.service-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+/* Wrapper to hold the buttons and slider together */
+.slider-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+/* Styling for the Left/Right Desktop Buttons */
+.scroll-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.scroll-btn:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.left-btn { left: 10px; }
+.right-btn { right: 10px; }
+
+.testimonial-slider {
+    display: flex;
+    overflow-x: auto;
     gap: 2rem;
+    padding: 1rem 60px 2rem 60px; /* Space for buttons on desktop */
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    width: 100%;
+    
+    /* Elegant Desktop Scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-color) rgba(0,0,0,0.1);
 }
 
-.service-card {
+/* Custom Scrollbar Styling for Chrome/Safari on Desktop */
+.testimonial-slider::-webkit-scrollbar {
+    height: 10px;
+    display: block;
+}
+.testimonial-slider::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.05);
+    border-radius: 10px;
+    margin: 0 60px; /* Aligns the scrollbar with the cards */
+}
+.testimonial-slider::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
+    border-radius: 10px;
+}
+.testimonial-slider::-webkit-scrollbar-thumb:hover {
+    background-color: #bf4c00;
+}
+
+.testimonial-card {
+    flex: 0 0 85%; 
+    max-width: 500px; 
+    scroll-snap-align: center; 
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
     background-color: var(--white);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
     transition: transform 0.3s ease;
 }
 
-.service-card:hover {
+.testimonial-card:hover {
     transform: translateY(-5px);
 }
 
-.service-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
+.testimonial-card img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
+
+.swipe-indicator {
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+.mobile-text { display: none; }
+.desktop-text { display: inline; }
 
 /* --- Contact / Lead Form Section --- */
 .contact {
@@ -207,6 +298,7 @@ header {
 .contact-info h2 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
+    color: var(--primary-color);
 }
 
 .contact-info p {
@@ -269,12 +361,10 @@ footer {
         font-size: 2.5rem;
     }
     
-    /* Reveal the hamburger icon */
     .hamburger {
         display: flex;
     }
     
-    /* Style the sidebar menu */
     .nav-links {
         position: fixed;
         top: 0;
@@ -298,7 +388,6 @@ footer {
         font-size: 1.2rem;
     }
 
-    /* Animate Hamburger into an 'X' */
     .hamburger.active .bar:nth-child(2) {
         opacity: 0;
     }
@@ -308,4 +397,17 @@ footer {
     .hamburger.active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
+
+    .scroll-btn {
+        display: none; /* Hide arrow buttons on mobile */
+    }
+    .testimonial-slider {
+        padding: 1rem 5vw 3rem 5vw;
+        scrollbar-width: none; /* Hide scrollbar on mobile */
+    }
+    .testimonial-slider::-webkit-scrollbar {
+        display: none; 
+    }
+    .mobile-text { display: inline; }
+    .desktop-text { display: none; }
 }
