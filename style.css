@@ -147,7 +147,6 @@ header {
     margin-bottom: 2rem;
 }
 
-/* --- Hero Buttons & Discount Badge --- */
 .hero-buttons {
     display: flex;
     gap: 15px;
@@ -158,26 +157,26 @@ header {
 
 .cta-button {
     display: inline-block;
-    background-color: var(--accent-color);
+    background-color: rgba(211, 84, 0, 0.85); 
     color: var(--white);
     padding: 1rem 2.5rem;
     font-size: 1.1rem;
     font-weight: bold;
     text-decoration: none;
     border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    border: 2px solid var(--accent-color);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: 1px solid rgba(211, 84, 0, 0.5);
+    backdrop-filter: blur(4px);
 }
 
 .cta-button:hover {
-    background-color: #bf4c00;
-    border-color: #bf4c00;
+    background-color: rgba(211, 84, 0, 1);
+    transform: translateY(-2px);
 }
 
-/* Secondary Transparent Button */
 .cta-button.secondary {
-    background-color: transparent;
-    border: 2px solid var(--white);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 .cta-button.secondary:hover {
@@ -186,16 +185,31 @@ header {
     border-color: var(--white);
 }
 
-/* Discount Badge */
 .discount-notice {
     font-size: 1rem;
-    font-weight: 600;
-    background-color: rgba(26, 24, 24, 0.8);
-    display: inline-block;
+    font-weight: 500; 
+    background-color: rgba(255, 255, 255, 0.15); 
+    color: var(--white);
+    
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center;
+    gap: 12px; 
+    
     padding: 0.6rem 1.5rem;
-    border-radius: 50px;
-    border: 1px solid var(--accent-color);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    border-radius: 50px; 
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+    backdrop-filter: blur(6px); 
+    max-width: 100%;
+}
+
+.discount-icon {
+    height: 28px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+    flex-shrink: 0;
 }
 
 /* --- Testimonials Section (Horizontal Scroll) --- */
@@ -311,7 +325,6 @@ header {
 .mobile-text { display: none; }
 .desktop-text { display: inline; }
 
-/* --- Contact / Lead Form Section --- */
 .contact {
     padding: 5rem 5%;
     display: flex;
@@ -370,7 +383,6 @@ header {
     background-color: #333333;
 }
 
-/* --- Footer --- */
 footer {
     background-color: var(--primary-color);
     color: var(--white);
@@ -378,7 +390,6 @@ footer {
     padding: 2rem 5%;
 }
 
-/* --- Responsive Adjustments & Mobile Menu --- */
 @media (max-width: 768px) {
     header {
         padding-bottom: 25px;
@@ -392,7 +403,6 @@ footer {
         font-size: 2.5rem;
     }
 
-    /* Shrink the discount badge slightly on phones */
     .discount-notice {
         font-size: 0.9rem;
         padding: 0.5rem 1rem;
@@ -477,3 +487,170 @@ footer {
     opacity: 0.7;
     cursor: not-allowed;
 }
+
+/* =========================================
+   OUR WORK / GALLERY PAGE STYLES
+   ========================================= */
+
+/* --- OUR WORK / GALLERY PAGE STYLES --- */
+
+/* Mini Hero with Separate Background Image */
+.mini-hero {
+    position: relative;
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 6rem 20px 4rem 20px;
+    border-bottom: 5px solid var(--accent-color);
+    overflow: hidden;
+}
+
+.mini-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('images/work-hero-image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.mini-hero h2,
+.mini-hero p {
+    position: relative;
+    z-index: 2;
+}
+
+.mini-hero h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.mini-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Gallery Grid */
+.gallery-section {
+    padding: 4rem 5%;
+    background-color: var(--light-bg);
+}
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background-color: var(--primary-color);
+    aspect-ratio: 4/3;
+}
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    display: block;
+}
+
+/* Trendy Hover Effect */
+.gallery-item:hover img {
+    transform: scale(1.08);
+    opacity: 0.7;
+}
+.gallery-item::after {
+    content: ""; 
+    background-image: url('images/fullscreen_icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50px; 
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.5));
+}
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+/* Fullscreen Lightbox */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.92);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.lightbox.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.lightbox-img {
+    max-width: 90vw;
+    max-height: 85vh;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    user-select: none;
+}
+
+/* Lightbox Controls */
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: var(--white);
+    font-size: 3rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+.lightbox-close:hover {
+    color: var(--accent-color);
+}
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.1);
+    color: var(--white);
+    border: none;
+    padding: 1rem 1.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+.lightbox-nav:hover {
+    background: var(--accent-color);
+}
+.lightbox-nav.prev { left: 20px; }
+.lightbox-nav.next { right: 20px; }
+
+@media (max-width: 600px) {
+    .lightbox-nav { display: none; }
+}
+
