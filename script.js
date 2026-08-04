@@ -1,3 +1,5 @@
+let lockedScrollY = 0;
+
 document.addEventListener("DOMContentLoaded", function() {
     
     const hamburger = document.getElementById('hamburger');
@@ -71,12 +73,15 @@ document.addEventListener("DOMContentLoaded", function() {
         galleryItems.forEach((img, index) => {
             imageArray.push(img.src);
             
-            // Open lightbox on click
             img.parentElement.addEventListener('click', () => {
                 currentIndex = index;
                 showImage(currentIndex);
                 lightbox.classList.add('active');
-                document.body.classList.add('no-scroll');
+
+                lockedScrollY = window.scrollY;
+                document.body.style.position = 'fixed';
+                document.body.style.top = `-${lockedScrollY}px`;
+                document.body.style.width = '100%';
             });
         });
 
@@ -85,19 +90,21 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         function nextImage() {
-            currentIndex = (currentIndex + 1) % imageArray.length; // Loops back to start
+            currentIndex = (currentIndex + 1) % imageArray.length;
             showImage(currentIndex);
         }
 
         function prevImage() {
-            currentIndex = (currentIndex - 1 + imageArray.length) % imageArray.length; // Loops to end
+            currentIndex = (currentIndex - 1 + imageArray.length) % imageArray.length;
             showImage(currentIndex);
         }
 
-        // Click Events
-        closeBtn.addEventListener('click', () => {
+            closeBtn.addEventListener('click', () => {
             lightbox.classList.remove('active');
-            document.body.classList.remove('no-scroll');
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            window.scrollTo(0, lockedScrollY);
         });
         
         nextBtn.addEventListener('click', nextImage);
@@ -106,22 +113,26 @@ document.addEventListener("DOMContentLoaded", function() {
         lightbox.addEventListener('click', (e) => {
             if (e.target !== lightboxImg && e.target !== prevBtn && e.target !== nextBtn) {
                 lightbox.classList.remove('active');
-                document.body.classList.remove('no-scroll');
+                document.body.style.position = '';
+                document.body.style.top = '';
+                document.body.style.width = '';
+                window.scrollTo(0, lockedScrollY);
             }
         });
 
-        // Keyboard Controls
         document.addEventListener('keydown', (e) => {
             if (!lightbox.classList.contains('active')) return;
             if (e.key === 'ArrowRight') nextImage();
             if (e.key === 'ArrowLeft') prevImage();
             if (e.key === 'Escape') {
                 lightbox.classList.remove('active');
-                document.body.classList.remove('no-scroll');
+                document.body.style.position = '';
+                document.body.style.top = '';
+                document.body.style.width = '';
+                window.scrollTo(0, lockedScrollY);
             }
         });
 
-        // Mobile Swipe Controls
         let touchstartX = 0;
         let touchendX = 0;
         
