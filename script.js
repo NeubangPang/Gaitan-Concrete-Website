@@ -76,6 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 currentIndex = index;
                 showImage(currentIndex);
                 lightbox.classList.add('active');
+                document.body.classList.add('no-scroll');
             });
         });
 
@@ -94,13 +95,18 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // Click Events
-        closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
+        closeBtn.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+        });
+        
         nextBtn.addEventListener('click', nextImage);
         prevBtn.addEventListener('click', prevImage);
 
         lightbox.addEventListener('click', (e) => {
             if (e.target !== lightboxImg && e.target !== prevBtn && e.target !== nextBtn) {
                 lightbox.classList.remove('active');
+                document.body.classList.remove('no-scroll');
             }
         });
 
@@ -109,7 +115,10 @@ document.addEventListener("DOMContentLoaded", function() {
             if (!lightbox.classList.contains('active')) return;
             if (e.key === 'ArrowRight') nextImage();
             if (e.key === 'ArrowLeft') prevImage();
-            if (e.key === 'Escape') lightbox.classList.remove('active');
+            if (e.key === 'Escape') {
+                lightbox.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            }
         });
 
         // Mobile Swipe Controls

@@ -19,6 +19,10 @@ body {
     line-height: 1.6;
 }
 
+body.no-scroll {
+    overflow: hidden;
+}
+
 /* --- Header & Navigation --- */
 header {
     background-color: var(--primary-color);
@@ -651,6 +655,11 @@ footer {
 .lightbox-nav.next { right: 20px; }
 
 @media (max-width: 600px) {
-    .lightbox-nav { display: none; }
+    .lightbox-nav { 
+        padding: 0.5rem 1rem;
+        font-size: 1.5rem;
+        background: rgba(0, 0, 0, 0.4);
+    }
+    .lightbox-nav.prev { left: 10px; }
+    .lightbox-nav.next { right: 10px; }
 }
-
