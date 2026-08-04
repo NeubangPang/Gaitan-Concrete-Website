@@ -632,9 +632,7 @@ footer {
     cursor: pointer;
     transition: color 0.3s ease;
 }
-.lightbox-close:hover {
-    color: var(--accent-color);
-}
+
 .lightbox-nav {
     position: absolute;
     top: 50%;
@@ -648,9 +646,20 @@ footer {
     border-radius: 4px;
     transition: background 0.3s ease;
 }
-.lightbox-nav:hover {
+
+.lightbox-nav:active {
     background: var(--accent-color);
 }
+
+@media (hover: hover) and (pointer: fine) {
+    .lightbox-nav:hover {
+        background: var(--accent-color);
+    }
+    .lightbox-close:hover {
+        color: var(--accent-color);
+    }
+}
+
 .lightbox-nav.prev { left: 20px; }
 .lightbox-nav.next { right: 20px; }
 
