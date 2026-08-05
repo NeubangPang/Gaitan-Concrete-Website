@@ -780,6 +780,32 @@ footer {
 }
 
 /* =========================================
+   REVIEW CALL-TO-ACTION CARD
+   ========================================= */
+.review-cta-card {
+    background-color: var(--white);
+    max-width: 600px;
+    margin: 4rem auto 2rem auto; /* 4rem top margin creates the separation */
+    padding: 3rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--accent-color);
+    text-align: center;
+}
+
+.review-cta-card h3 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.review-cta-card p {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+/* =========================================
    REVIEW MODAL STYLES
    ========================================= */
 .review-modal-overlay {
