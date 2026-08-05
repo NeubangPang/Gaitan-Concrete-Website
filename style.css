@@ -780,6 +780,21 @@ footer {
 }
 
 /* =========================================
+   STYLISH SECTION DIVIDER
+   ========================================= */
+.stylish-divider {
+    border: 0;
+    height: 3px;
+    width: 100%;
+    max-width: 400px;
+    margin: 4rem auto 1rem auto;
+    background-image: linear-gradient(to right, transparent, var(--accent-color), transparent);
+    opacity: 0.8;
+    border-radius: 5px;
+}
+
+
+/* =========================================
    REVIEW CALL-TO-ACTION CARD
    ========================================= */
 .review-cta-container {
