@@ -688,7 +688,11 @@ footer {
    SERVICES PAGE STYLES
    ========================================= */
 
-.services-content {
+   .services-hero::before {
+    background-image: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('/images/services-hero-image.jpg');
+}
+
+   .services-content {
     padding: 5rem 5%;
     background-color: var(--white);
 }
@@ -774,3 +778,4 @@ footer {
         padding: 2rem 1.5rem;
     }
 }
+
