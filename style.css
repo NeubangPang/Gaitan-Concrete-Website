@@ -782,27 +782,36 @@ footer {
 /* =========================================
    REVIEW CALL-TO-ACTION CARD
    ========================================= */
+.review-cta-container {
+    background-color: var(--white); /* Sits on a clean white background */
+    padding: 5rem 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .review-cta-card {
-    background-color: var(--white);
-    max-width: 600px;
-    margin: 4rem auto 2rem auto; /* 4rem top margin creates the separation */
-    padding: 3rem 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    border-top: 4px solid var(--accent-color);
+    background-color: #FFFFFF;
+    width: 100%;
+    max-width: 650px;
+    padding: 4rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12); /* Heavy, soft drop-shadow for 3D separation */
+    border-top: 6px solid var(--accent-color); /* Thicker orange accent line */
     text-align: center;
 }
 
 .review-cta-card h3 {
     color: var(--primary-color);
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
+    font-size: 2.2rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.2;
 }
 
 .review-cta-card p {
     color: var(--text-color);
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    font-size: 1.15rem;
 }
 
 /* =========================================
