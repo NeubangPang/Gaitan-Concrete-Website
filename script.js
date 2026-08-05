@@ -211,3 +211,33 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 });
+
+// ==========================================
+// WEBSITE REVIEW MODAL LOGIC
+// ==========================================
+document.addEventListener("DOMContentLoaded", function() {
+  const siteReviewModal = document.getElementById('site-review-modal');
+  const openSiteReviewBtn = document.getElementById('open-site-review-modal');
+  const closeSiteReviewBtn = document.getElementById('close-site-review-modal');
+
+  if(openSiteReviewBtn && siteReviewModal) {
+    
+    openSiteReviewBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      siteReviewModal.classList.add('active');
+    });
+
+    if(closeSiteReviewBtn) {
+      closeSiteReviewBtn.addEventListener('click', () => {
+        siteReviewModal.classList.remove('active');
+      });
+    }
+
+    // Close when clicking outside the box
+    window.addEventListener('click', (e) => {
+      if (e.target === siteReviewModal) {
+        siteReviewModal.classList.remove('active');
+      }
+    });
+  }
+});

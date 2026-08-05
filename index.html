@@ -109,10 +109,14 @@
 
     <section class="review-cta-container">
         <div class="review-cta-card">
-            <h3>Had a great experience?</h3>
-            <p>Please share your thoughts!</p>
+        <h3>Had a great experience?</h3>
+        <p>Please share your thoughts! Your feedback means the world to our small business.</p>
+        
+        <div class="cta-button-group">
             <button id="open-review-modal" class="cta-button">Leave a Google Review</button>
+            <button id="open-site-review-modal" class="cta-button dark-secondary">Leave a Website Review</button>
         </div>
+    </div>
     </section>
     
 
@@ -162,8 +166,10 @@
     <script>
         window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
         formspree('initForm', { formElement: '#lead-form', formId: 'mwvggayv' });
+        formspree('initForm', { formElement: '#testimonial-form', formId: 'mwvggayv' });
     </script>
     <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+    
     
     <script src="/script.js"></script>
     <div id="review-modal" class="review-modal-overlay">

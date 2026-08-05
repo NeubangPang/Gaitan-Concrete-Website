@@ -888,3 +888,41 @@ footer {
   content-visibility: auto;
   contain-intrinsic-size: auto 300px; 
 }
+
+/* =========================================
+   SIDE-BY-SIDE BUTTONS & FORM STYLES
+   ========================================= */
+.cta-button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap; /* Stacks nicely on mobile screens */
+}
+
+.cta-button.dark-secondary {
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    color: var(--white);
+}
+
+.cta-button.dark-secondary:hover {
+    background-color: #333333;
+    border-color: #333333;
+    transform: translateY(-2px);
+}
+
+.testimonial-select {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: var(--white);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.testimonial-select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
