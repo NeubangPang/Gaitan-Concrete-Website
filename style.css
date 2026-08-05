@@ -786,7 +786,7 @@ footer {
     display: block;
     height: 3px;
     width: 100%;
-    max-width: 800px;
+    max-width: 1200px;
     margin: 4rem auto 2rem auto; /* Adjusted bottom margin for perfect balance */
     background-color: var(--accent-color); /* Fallback color */
     background: linear-gradient(to right, rgba(211, 84, 0, 0), var(--accent-color), rgba(211, 84, 0, 0));
