@@ -174,3 +174,41 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
     
+    // ==========================================
+// GOOGLE REVIEW MODAL LOGIC
+// ==========================================
+document.addEventListener("DOMContentLoaded", function() {
+  const reviewModal = document.getElementById('review-modal');
+  const openReviewBtn = document.getElementById('open-review-modal');
+  const closeReviewBtn = document.getElementById('close-review-modal');
+  const redirectBtns = document.querySelectorAll('.review-redirect-btn');
+
+  // Insert your specific Google Place ID here
+  const GOOGLE_PLACE_ID = "ChIJyeEMHCOpK4cRKhngaczhw3c"; 
+  const googleReviewLink = `https://search.google.com/local/writereview?placeid=${ChIJyeEMHCOpK4cRKhngaczhw3c}`;
+
+  if(openReviewBtn && reviewModal) {
+    openReviewBtn.addEventListener('click', () => {
+      reviewModal.classList.add('active');
+    });
+
+    closeReviewBtn.addEventListener('click', () => {
+      reviewModal.classList.remove('active');
+    });
+
+    // Close modal if user clicks outside the box
+    window.addEventListener('click', (e) => {
+      if (e.target === reviewModal) {
+        reviewModal.classList.remove('active');
+      }
+    });
+
+    // Redirect to Google when they click the button in the modal
+    redirectBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        window.open(googleReviewLink, '_blank');
+        reviewModal.classList.remove('active');
+      });
+    });
+  }
+});

@@ -779,3 +779,63 @@ footer {
     }
 }
 
+/* =========================================
+   REVIEW MODAL STYLES
+   ========================================= */
+.review-modal-overlay {
+  display: none; 
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.review-modal-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+.review-modal-content {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 2.5rem;
+  border-radius: 8px;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  border: 2px solid var(--accent-color);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.review-modal-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+}
+
+.review-modal-close {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--white);
+  transition: color 0.3s ease;
+}
+
+.review-modal-close:hover {
+  color: var(--accent-color);
+}
+
+/* =========================================
+   GALLERY PERFORMANCE OPTIMIZATION 
+   ========================================= */
+.gallery-item {
+  /* This tells the browser to skip rendering off-screen images */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 300px; 
+}
