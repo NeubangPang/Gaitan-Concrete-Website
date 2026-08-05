@@ -683,3 +683,94 @@ footer {
     .lightbox-nav.prev { left: 10px; }
     .lightbox-nav.next { right: 10px; }
 }
+
+/* =========================================
+   SERVICES PAGE STYLES
+   ========================================= */
+
+.services-content {
+    padding: 5rem 5%;
+    background-color: var(--white);
+}
+
+.services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-category {
+    margin-bottom: 5rem;
+}
+
+.category-title {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 2.5rem;
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background-color: var(--light-bg);
+    padding: 3rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-top 0.3s ease;
+    border-top: 4px solid transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    border-top: 4px solid var(--accent-color);
+}
+
+.service-card h4 {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.service-card p {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.services-cta {
+    text-align: center;
+    padding: 5rem 20px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-top: 5px solid var(--accent-color);
+}
+
+.services-cta h2 {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .category-title {
+        font-size: 1.8rem;
+    }
+    .services-cta h2 {
+        font-size: 2rem;
+    }
+    .service-card {
+        padding: 2rem 1.5rem;
+    }
+}
