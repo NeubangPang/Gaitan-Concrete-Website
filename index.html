@@ -183,5 +183,38 @@
     <button class="cta-button review-redirect-btn">Continue to Google Reviews</button>
         </div>
     </div>
+
+    <!-- Website Review Modal -->
+    <div id="site-review-modal" class="review-modal-overlay">
+        <div class="review-modal-content" style="max-width: 600px;">
+            <span class="review-modal-close" id="close-site-review-modal">&times;</span>
+            <h3>Submit a Testimonial</h3>
+            <p style="margin-bottom: 1.5rem;">Share your experience to be featured on our website's review slider!</p>
+            
+            <div data-fs-success class="form-message success-message"></div>
+            <div data-fs-error class="form-message error-message"></div>
+
+            <form id="testimonial-form" style="text-align: left;">
+                <div class="form-group">
+                    <input type="text" name="Reviewer Name" placeholder="Your Name (As you want it displayed)" data-fs-field required>
+                </div>
+                <div class="form-group">
+                    <select name="Star Rating" class="testimonial-select" data-fs-field required>
+                        <option value="" disabled selected>Select a Star Rating</option>
+                        <option value="5 Stars">⭐⭐⭐⭐⭐ (5 Stars)</option>
+                        <option value="4 Stars">⭐⭐⭐⭐ (4 Stars)</option>
+                        <option value="3 Stars">⭐⭐⭐ (3 Stars)</option>
+                        <option value="2 Stars">⭐⭐ (2 Stars)</option>
+                        <option value="1 Star">⭐ (1 Star)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea name="Review" placeholder="Tell us about your project and experience..." data-fs-field required></textarea>
+                </div>
+                <button type="submit" class="submit-btn" data-fs-submit-btn>Submit Review</button>
+            </form>
+        </div>
+    </div>
+
 </body>
 </html>
