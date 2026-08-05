@@ -656,7 +656,6 @@ footer {
 
 .lightbox-nav.hidden {
     opacity: 0;
-    pointer-events: none; /* Prevents accidental clicks when invisible */
 }
 
 .lightbox-nav:active {
