@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
     
-    // ==========================================
+// ==========================================
 // GOOGLE REVIEW MODAL LOGIC
 // ==========================================
 document.addEventListener("DOMContentLoaded", function() {
@@ -183,12 +183,13 @@ document.addEventListener("DOMContentLoaded", function() {
   const closeReviewBtn = document.getElementById('close-review-modal');
   const redirectBtns = document.querySelectorAll('.review-redirect-btn');
 
-  // Insert your specific Google Place ID here
   const GOOGLE_PLACE_ID = "ChIJyeEMHCOpK4cRKhngaczhw3c"; 
-  const googleReviewLink = `https://search.google.com/local/writereview?placeid=${ChIJyeEMHCOpK4cRKhngaczhw3c}`;
+  
+  const googleReviewLink = `https://search.google.com/local/writereview?placeid=${GOOGLE_PLACE_ID}`;
 
   if(openReviewBtn && reviewModal) {
-    openReviewBtn.addEventListener('click', () => {
+    openReviewBtn.addEventListener('click', (e) => {
+      e.preventDefault();
       reviewModal.classList.add('active');
     });
 
@@ -196,18 +197,16 @@ document.addEventListener("DOMContentLoaded", function() {
       reviewModal.classList.remove('active');
     });
 
-    // Close modal if user clicks outside the box
     window.addEventListener('click', (e) => {
       if (e.target === reviewModal) {
         reviewModal.classList.remove('active');
       }
     });
 
-    // Redirect to Google when they click the button in the modal
     redirectBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        window.open(googleReviewLink, '_blank');
-        reviewModal.classList.remove('active');
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.href = googleReviewLink; 
       });
     });
   }
