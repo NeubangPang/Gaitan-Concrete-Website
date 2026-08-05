@@ -19,10 +19,6 @@ body {
     line-height: 1.6;
 }
 
-body.no-scroll {
-    overflow: hidden;
-}
-
 /* --- Header & Navigation --- */
 header {
     background-color: var(--primary-color);
@@ -622,6 +618,17 @@ footer {
     user-select: none;
 }
 
+.testimonial-card img {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .testimonial-card img:hover {
+        transform: scale(1.03);
+    }
+}
+
 /* Lightbox Controls */
 .lightbox-close {
     position: absolute;
@@ -644,7 +651,12 @@ footer {
     font-size: 2rem;
     cursor: pointer;
     border-radius: 4px;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, opacity 0.5s ease;
+}
+
+.lightbox-nav.hidden {
+    opacity: 0;
+    pointer-events: none; /* Prevents accidental clicks when invisible */
 }
 
 .lightbox-nav:active {

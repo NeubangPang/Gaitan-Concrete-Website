@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // =========================================
     // 5. GALLERY LIGHTBOX & SWIPE LOGIC
     // =========================================
-    const galleryItems = document.querySelectorAll('.gallery-item img');
+    const galleryItems = document.querySelectorAll('.gallery-item img, .testimonial-card img');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const closeBtn = document.getElementById('lightbox-close');
@@ -67,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const nextBtn = document.getElementById('lightbox-next');
     
     let currentIndex = 0;
+    let arrowTimer;
     const imageArray = [];
 
     if (lightbox) {
@@ -82,8 +83,24 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.body.style.position = 'fixed';
                 document.body.style.top = `-${lockedScrollY}px`;
                 document.body.style.width = '100%';
+                resetArrowTimer();
             });
         });
+
+        function resetArrowTimer() {
+
+    prevBtn.classList.remove('hidden');
+    nextBtn.classList.remove('hidden');
+    
+    clearTimeout(arrowTimer);
+    
+    if (lightbox.classList.contains('active')) {
+        arrowTimer = setTimeout(() => {
+            prevBtn.classList.add('hidden');
+            nextBtn.classList.add('hidden');
+        }, 2500); 
+    }
+}
 
         function showImage(index) {
             lightboxImg.src = imageArray[index];
@@ -99,12 +116,13 @@ document.addEventListener("DOMContentLoaded", function() {
             showImage(currentIndex);
         }
 
-            closeBtn.addEventListener('click', () => {
+        closeBtn.addEventListener('click', () => {
             lightbox.classList.remove('active');
             document.body.style.position = '';
             document.body.style.top = '';
             document.body.style.width = '';
             window.scrollTo(0, lockedScrollY);
+            clearTimeout(arrowTimer);
         });
         
         nextBtn.addEventListener('click', nextImage);
@@ -144,6 +162,10 @@ document.addEventListener("DOMContentLoaded", function() {
             touchendX = e.changedTouches[0].screenX;
             handleSwipe();
         }, {passive: true});
+
+        lightbox.addEventListener('touchstart', resetArrowTimer, {passive: true});
+        lightbox.addEventListener('mousemove', resetArrowTimer);
+        lightbox.addEventListener('click', resetArrowTimer);
 
         function handleSwipe() {
             const swipeThreshold = 50;
